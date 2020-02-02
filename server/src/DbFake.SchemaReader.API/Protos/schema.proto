@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "DbFake.SchemaReader.API.Services";
+
+package Db;
+
+service Schema {
+  rpc GetDatabases(GetDatabasesRequest) returns (GetDatabasesReply);
+  rpc GetFields(.Db.GetFieldsRequest) returns (.Db.GetFieldsReply);
+}
+
+message table {
+  string name = 1;
+}
+
+message database {
+  string name = 1;
+  repeated table tables = 2;
+}
+
+message field {
+  string name = 1;
+  string type = 2;
+}
+
+message GetDatabasesRequest {
+  string connectionString = 1;
+}
+
+message GetDatabasesReply {
+  repeated database databases = 1;
+}
+
+message GetFieldsRequest {
+  string connectionString = 1;
+  string database = 2;
+  string table = 3;
+}
+
+message GetFieldsReply {
+  string database = 1;
+  string table = 2;
+  repeated field fields = 3;
+}
+

@@ -6,16 +6,17 @@ package Db;
 
 service Schema {
   rpc GetDatabases(GetDatabasesRequest) returns (GetDatabasesReply);
-  rpc GetFields(.Db.GetFieldsRequest) returns (.Db.GetFieldsReply);
+  rpc GetDatabase(GetDatabaseRequest) returns (GetDatabaseReply);
 }
 
 message table {
   string name = 1;
+  string schema = 2;
+  repeated field fields = 3;
 }
 
 message database {
   string name = 1;
-  repeated table tables = 2;
 }
 
 message field {
@@ -31,15 +32,13 @@ message GetDatabasesReply {
   repeated database databases = 1;
 }
 
-message GetFieldsRequest {
+message GetDatabaseRequest {
   string connectionString = 1;
   string database = 2;
-  string table = 3;
 }
 
-message GetFieldsReply {
+message GetDatabaseReply {
   string database = 1;
-  string table = 2;
-  repeated field fields = 3;
+  repeated table tables = 2;
 }
 

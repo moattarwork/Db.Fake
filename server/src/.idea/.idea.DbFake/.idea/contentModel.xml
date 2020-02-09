@@ -19,28 +19,31 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="WeatherForecastController.cs" t="Include" />
+          <e p="SchemaController.cs" t="Include" />
         </e>
         <e p="DbFake.Executor.API.csproj" t="IncludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="DbFake.Executor.API.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
+        <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Protos" t="Include" />
         <e p="Startup.cs" t="Include" />
-        <e p="WeatherForecast.cs" t="Include" />
       </e>
       <e p="DbFake.SchemaReader.API" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DbFake.SchemaReader.API.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="Domain" t="Include">
+            <e p="Database.cs" t="Include" />
+            <e p="Field.cs" t="Include" />
+            <e p="Table.cs" t="Include" />
+          </e>
+          <e p="IDbSchemaReader.cs" t="Include" />
+          <e p="SqlDbSchemaReader.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -58,13 +61,36 @@
           <e p="schema.proto" t="Include" />
         </e>
         <e p="Services" t="Include">
-          <e p="GreeterService.cs" t="Include" />
+          <e p="ConnectionInfo.cs" t="Include" />
+          <e p="SchemaService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="DbFake.SchemaReader.API.UnitTests" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DbFake.SchemaReader.API.UnitTests.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="SqlDbSchemaReaderTests.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="DbFake.SchemaReader.API.UnitTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
       </e>
       <e p="DbFake.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
+    <e p="C:\Users\moatt\.nuget\packages\microsoft.net.test.sdk\16.2.0\build\netcoreapp1.0" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="C:\Users\moatt\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\moatt\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="C:\Users\moatt\.nuget\packages\xunit.runner.visualstudio\2.4.0\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
+    <e p="C:\Users\moatt\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\moatt\.Rider2019.3\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\moatt\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\moatt\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_DbFake.-1833823710.00" t="ExcludeRecursive" />
   </component>

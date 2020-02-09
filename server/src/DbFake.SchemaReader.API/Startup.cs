@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DbFake.SchemaReader.API.Models;
 using DbFake.SchemaReader.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,7 +20,7 @@ namespace DbFake.SchemaReader.API
         {
             services.AddGrpc();
 
-            services.AddTransient<IDbSchemaReader, DbSchemaReader>();
+            services.AddTransient<IDbSchemaReader, SqlDbSchemaReader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +35,7 @@ namespace DbFake.SchemaReader.API
 
             app.UseEndpoints(endpoints =>
             {
-                // endpoints.MapGrpcService<SchemaService>();
+                endpoints.MapGrpcService<SchemaService>();
 
                 endpoints.MapGet("/",
                     async context =>

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbFake.Common", "DbFake.Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbFake.Executor.API", "DbFake.Executor.API\DbFake.Executor.API.csproj", "{B3D0CA15-2F20-4CF0-9FB5-539A2A8206F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFake.SchemaReader.API.UnitTests", "DbFake.SchemaReader.API.UnitTests\DbFake.SchemaReader.API.UnitTests.csproj", "{E45BD09B-6A86-4801-BFAC-7C8E8C8F98FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B3D0CA15-2F20-4CF0-9FB5-539A2A8206F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D0CA15-2F20-4CF0-9FB5-539A2A8206F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D0CA15-2F20-4CF0-9FB5-539A2A8206F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45BD09B-6A86-4801-BFAC-7C8E8C8F98FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45BD09B-6A86-4801-BFAC-7C8E8C8F98FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45BD09B-6A86-4801-BFAC-7C8E8C8F98FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45BD09B-6A86-4801-BFAC-7C8E8C8F98FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

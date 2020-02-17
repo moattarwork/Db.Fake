@@ -26,7 +26,10 @@ namespace DbFake.Executor.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Executor API", Version = "v1" });
             });
-
+            services.AddCors(s => s.AddDefaultPolicy(p => 
+                p.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin().WithExposedHeaders("x-filename")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +40,8 @@ namespace DbFake.Executor.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Executor API V1");
             });
+
+            app.UseCors();
 
             if (env.IsDevelopment())
             {

@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using DbFake.SchemaReader.API.Models;
-using Google.Protobuf.Collections;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 
@@ -18,29 +17,40 @@ namespace DbFake.SchemaReader.API.Services
             _dbSchemaReader = dbSchemaReader ?? throw new ArgumentNullException(nameof(dbSchemaReader));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-        public override async Task<GetDatabasesReply> GetDatabases(GetDatabasesRequest request, ServerCallContext callContext)
+
+        public override async Task<GetDatabasesReply> GetDatabases(GetDatabasesRequest request,
+            ServerCallContext callContext)
         {
             var databases = await _dbSchemaReader.GetDatabasesAsync(new ConnectionInfo(request.ConnectionString));
             var reply = new GetDatabasesReply();
-            reply.Databases.AddRange(databases.Select(d => new database() {Name = d.Name}));
-            
+            reply.Databases.AddRange(databases.Select(d => new database {Name = d.Name}));
+
             return reply;
-        }        
-        
-        public override async Task<GetDatabaseReply> GetDatabase(GetDatabaseRequest request, ServerCallContext callContext)
+        }
+
+        public override async Task<GetDatabaseReply> GetDatabase(GetDatabaseRequest request,
+            ServerCallContext callContext)
         {
-            var tables = await _dbSchemaReader.GetDatabaseTablesAsync(new ConnectionInfo(request.ConnectionString), request.Database);
+            var tables =
+                await _dbSchemaReader.GetDatabaseTablesAsync(new ConnectionInfo(request.ConnectionString),
+                    request.Database);
             var reply = new GetDatabaseReply();
             reply.Tables.AddRange(tables.Select(d =>
             {
                 var table = new table {Name = d.TableName, Schema = d.SchemaName};
-                table.Fields.AddRange(d.Fields.Select(f => new field {Name = f.Name, Type = f.Type}));
+                table.Fields.AddRange(d.Fields.Select(f =>
+                {
+                    var field = new field {Name = f.Name, Type = f.Type, IsNullable = f.IsNullable};
+                    if (f.TypeLength.HasValue)
+                        field.TypeLength = f.TypeLength.Value;
+
+                    return field;
+                }));
 
                 return table;
             }));
-            
+
             return reply;
         }
     }
-
 }

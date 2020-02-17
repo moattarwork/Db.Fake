@@ -22,6 +22,9 @@ message database {
 message field {
   string name = 1;
   string type = 2;
+  oneof oneof_typeLength { int32 typeLength = 3; }
+  oneof oneof_isNullable { bool isNullable = 4; }
+
 }
 
 message GetDatabasesRequest {
